@@ -26,7 +26,7 @@ public:
 	}
 	~Matrix()
 	{
-		delete this->data;
+		delete[] this->data;
 	}
 	void set(int i, int j, double data)
 	{
@@ -80,7 +80,7 @@ public:
 	{
 		if(this->data != NULL)
 		{
-			delete this->data;
+			delete[] this->data;
 		}
 		this->m = A.m;
 		this->n = A.n;
@@ -268,8 +268,40 @@ public:
 		}
 		else
 		{
-			return 5;
+			return 350589;
 		}
+	}
+	Matrix reverse()
+	{
+		Matrix result;
+		result.n = 0;
+		result.m = 0;
+		result.data = NULL;
+		if(this->determinant() != 0 && this->m == this->n && !(this->failed()))
+		{
+			result.n = this->n;
+			result.m = this->m;
+			result.data = new double[result.n * result.m];
+			double det = 1 / ( 1.0 * this->determinant());
+			for(int i = 0; i < this->n; i++)
+			{
+				for(int j = 0; j < this->m; j++)
+				{
+					if((i + j) % 2 == 0)
+					{
+						result.set(i, j, this->minor(i, j).determinant());
+					}
+					else
+					{
+						result.set(i, j, (-1) * (this->minor(i, j).determinant()));
+					}
+				}
+			}
+			result = result.transpose();
+			result = result * det;
+		}
+		return Matrix(result);
+
 	}
 	ostream& print(ostream& o)
 	{
@@ -315,7 +347,6 @@ Matrix* get_init(int n, int m) // возвращает указатель на матрицу m на n с нулев
 	Matrix* test = new Matrix(n, m, mass);
 	return test;
 }
-
 /*int main()
 {
 
@@ -323,24 +354,26 @@ Matrix* get_init(int n, int m) // возвращает указатель на матрицу m на n с нулев
 
 	test->print(cout);
 
-	test->set(0, 0, 5);
-	test->set(0, 1, 7);
+	test->set(0, 0, 1);
+	test->set(0, 1, 0);
+	test->set(0, 2, 0);
+	test->set(1, 0, 0);
 	test->set(1, 1, 1);
-	test->set(1, 0, -4);
-	test->set(2, 0, 2);
-	test->set(0, 2, 1);
-	test->set(2, 1, 0);
-	test->set(2, 2, 3);
 	test->set(1, 2, 0);
+	test->set(2, 0, 0);	
+	test->set(2, 1, 0);
+	test->set(2, 2, 1);
+	
 
 	cout << '\n';
 	test->print(cout);
 	
 	Matrix test2;
-	test2 = test->transpose();
-	test2.print(cout);
 
 	cout << '\n' << test->determinant() << '\n';
+
+	test2 = test->reverse();
+	test2.print(cout);
 
 	if(test->failed())
 	{
