@@ -18,7 +18,7 @@ public:
 		this->m = 0;
 		this->data = NULL;
 	}
-	Matrix(int n, int m, double* data)
+	Matrix(int m, int n, double* data)
 	{
 		this->n = n;
 		this->m = m;
@@ -28,7 +28,7 @@ public:
 	{
 		delete[] this->data;
 	}
-	void set(int i, int j, double data)
+	void set(int j, int i, double data)
 	{
 		if(i > this->n - 1)
 		{
@@ -48,7 +48,7 @@ public:
 		}
 		this->data[(i * this->m) + j] = data;
 	}
-	double get(int i, int j)const
+	double get(int j, int i)const
 	{
 		return this->data[i * this->m + j];
 	}
@@ -76,7 +76,7 @@ public:
 	{
 		return(this->data == NULL || this->m == 0 || this->n == 0);
 	}
-	Matrix operator = (Matrix& A)
+	Matrix& operator = (Matrix& A)
 	{
 		if(this->data != NULL)
 		{
@@ -204,7 +204,7 @@ public:
 		}
 		return Matrix(result);
 	}
-	Matrix minor(int i, int j)
+	Matrix minor_(int j, int i)
 	{
 		Matrix result;
 		result.n = 0;
@@ -256,11 +256,11 @@ public:
 				{
 					if((i + j) % 2 == 0)
 					{
-						result = result + this->get(i, j) * (this->minor(i, j)).determinant();
+						result = result + this->get(i, j) * (this->minor_(i, j)).determinant();
 					}
 					else
 					{
-						result = result - this->get(i, j) * (this->minor(i, j)).determinant();
+						result = result - this->get(i, j) * (this->minor_(i, j)).determinant();
 					}					
 				}
 				return result;
@@ -289,11 +289,11 @@ public:
 				{
 					if((i + j) % 2 == 0)
 					{
-						result.set(i, j, this->minor(i, j).determinant());
+						result.set(i, j, this->minor_(i, j).determinant());
 					}
 					else
 					{
-						result.set(i, j, (-1) * (this->minor(i, j).determinant()));
+						result.set(i, j, (-1) * (this->minor_(i, j).determinant()));
 					}
 				}
 			}
@@ -337,7 +337,7 @@ public:
 	}
 };
 
-Matrix* get_init(int n, int m) // возвращает указатель на матрицу m на n с нулевым заполнением
+Matrix* get_init(int m, int n) // возвращает указатель на матрицу m на n с нулевым заполнением
 {
 	double* mass = new double[n * m];
 	for(int i = 0; i < n * m; i++)
