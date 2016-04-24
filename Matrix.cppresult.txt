@@ -1,62 +1,29 @@
 In file included from cur.cpp:16:0:
 antonov/Matrix.cpp: In member function 'Matrix Matrix::reverse()':
-antonov/Matrix.cpp:300:11: error: no match for 'operator=' (operand types are 'Matrix' and 'Matrix')
+antonov/Matrix.cpp:308:11: error: no match for 'operator=' (operand types are 'Matrix' and 'Matrix')
     result = result.transpose();
            ^
-antonov/Matrix.cpp:300:11: note: candidate is:
-antonov/Matrix.cpp:79:10: note: Matrix& Matrix::operator=(Matrix&)
+antonov/Matrix.cpp:308:11: note: candidate is:
+antonov/Matrix.cpp:87:10: note: Matrix& Matrix::operator=(Matrix&)
   Matrix& operator = (Matrix& A)
           ^
-antonov/Matrix.cpp:79:10: note:   no known conversion for argument 1 from 'Matrix' to 'Matrix&'
-antonov/Matrix.cpp:301:11: error: no match for 'operator=' (operand types are 'Matrix' and 'Matrix')
+antonov/Matrix.cpp:87:10: note:   no known conversion for argument 1 from 'Matrix' to 'Matrix&'
+antonov/Matrix.cpp:309:11: error: no match for 'operator=' (operand types are 'Matrix' and 'Matrix')
     result = result * det;
            ^
-antonov/Matrix.cpp:301:11: note: candidate is:
-antonov/Matrix.cpp:79:10: note: Matrix& Matrix::operator=(Matrix&)
+antonov/Matrix.cpp:309:11: note: candidate is:
+antonov/Matrix.cpp:87:10: note: Matrix& Matrix::operator=(Matrix&)
   Matrix& operator = (Matrix& A)
           ^
-antonov/Matrix.cpp:79:10: note:   no known conversion for argument 1 from 'Matrix' to 'Matrix&'
-In file included from /usr/pkg/include/gtest/gtest.h:1798:0,
-                 from cur.cpp:14:
-cur.cpp: In member function 'virtual void MatrixTest_GetNM_Test::TestBody()':
-cur.cpp:23:21: error: 'class Matrix' has no member named 'getM'
-     EXPECT_EQ(3, m->getM());
-                     ^
-/usr/pkg/include/gtest/gtest_pred_impl.h:77:52: note: in definition of macro 'GTEST_ASSERT_'
-   if (const ::testing::AssertionResult gtest_ar = (expression)) \
-                                                    ^
-/usr/pkg/include/gtest/gtest_pred_impl.h:162:3: note: in expansion of macro 'GTEST_PRED_FORMAT2_'
-   GTEST_PRED_FORMAT2_(pred_format, v1, v2, GTEST_NONFATAL_FAILURE_)
-   ^
-/usr/pkg/include/gtest/gtest.h:1847:3: note: in expansion of macro 'EXPECT_PRED_FORMAT2'
-   EXPECT_PRED_FORMAT2(::testing::internal:: \
-   ^
-cur.cpp:23:5: note: in expansion of macro 'EXPECT_EQ'
-     EXPECT_EQ(3, m->getM());
-     ^
-cur.cpp:24:21: error: 'class Matrix' has no member named 'getN'
-     EXPECT_EQ(4, m->getN());
-                     ^
-/usr/pkg/include/gtest/gtest_pred_impl.h:77:52: note: in definition of macro 'GTEST_ASSERT_'
-   if (const ::testing::AssertionResult gtest_ar = (expression)) \
-                                                    ^
-/usr/pkg/include/gtest/gtest_pred_impl.h:162:3: note: in expansion of macro 'GTEST_PRED_FORMAT2_'
-   GTEST_PRED_FORMAT2_(pred_format, v1, v2, GTEST_NONFATAL_FAILURE_)
-   ^
-/usr/pkg/include/gtest/gtest.h:1847:3: note: in expansion of macro 'EXPECT_PRED_FORMAT2'
-   EXPECT_PRED_FORMAT2(::testing::internal:: \
-   ^
-cur.cpp:24:5: note: in expansion of macro 'EXPECT_EQ'
-     EXPECT_EQ(4, m->getN());
-     ^
+antonov/Matrix.cpp:87:10: note:   no known conversion for argument 1 from 'Matrix' to 'Matrix&'
 cur.cpp: In member function 'virtual void MatrixTest_Reverse_Test::TestBody()':
 cur.cpp:47:7: error: no match for 'operator=' (operand types are 'Matrix' and 'Matrix')
      c = m->reverse();
        ^
 cur.cpp:47:7: note: candidate is:
 In file included from cur.cpp:16:0:
-antonov/Matrix.cpp:79:10: note: Matrix& Matrix::operator=(Matrix&)
+antonov/Matrix.cpp:87:10: note: Matrix& Matrix::operator=(Matrix&)
   Matrix& operator = (Matrix& A)
           ^
-antonov/Matrix.cpp:79:10: note:   no known conversion for argument 1 from 'Matrix' to 'Matrix&'
+antonov/Matrix.cpp:87:10: note:   no known conversion for argument 1 from 'Matrix' to 'Matrix&'
 ./check.sh: line 24: ./a.out: No such file or directory
