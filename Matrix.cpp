@@ -52,6 +52,14 @@ public:
 	{
 		return this->data[i * this->m + j];
 	}
+	int getM()
+	{
+		return this->m;
+	}
+	int getN()
+	{
+		return this->n;
+	}
 	Matrix(const Matrix& A)
 	{
 		this->m = A.m;
