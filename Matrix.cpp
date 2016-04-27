@@ -84,7 +84,7 @@ public:
 	{
 		return(this->data == NULL || this->m == 0 || this->n == 0);
 	}
-	Matrix& operator = (Matrix& A)
+	Matrix& operator = (const Matrix& A)
 	{
 		if(this->data != NULL)
 		{
