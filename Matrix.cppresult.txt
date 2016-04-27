@@ -1,29 +1,119 @@
-In file included from cur.cpp:16:0:
-antonov/Matrix.cpp: In member function 'Matrix Matrix::reverse()':
-antonov/Matrix.cpp:308:11: error: no match for 'operator=' (operand types are 'Matrix' and 'Matrix')
-    result = result.transpose();
-           ^
-antonov/Matrix.cpp:308:11: note: candidate is:
-antonov/Matrix.cpp:87:10: note: Matrix& Matrix::operator=(Matrix&)
-  Matrix& operator = (Matrix& A)
-          ^
-antonov/Matrix.cpp:87:10: note:   no known conversion for argument 1 from 'Matrix' to 'Matrix&'
-antonov/Matrix.cpp:309:11: error: no match for 'operator=' (operand types are 'Matrix' and 'Matrix')
-    result = result * det;
-           ^
-antonov/Matrix.cpp:309:11: note: candidate is:
-antonov/Matrix.cpp:87:10: note: Matrix& Matrix::operator=(Matrix&)
-  Matrix& operator = (Matrix& A)
-          ^
-antonov/Matrix.cpp:87:10: note:   no known conversion for argument 1 from 'Matrix' to 'Matrix&'
-cur.cpp: In member function 'virtual void MatrixTest_Reverse_Test::TestBody()':
-cur.cpp:47:7: error: no match for 'operator=' (operand types are 'Matrix' and 'Matrix')
-     c = m->reverse();
-       ^
-cur.cpp:47:7: note: candidate is:
-In file included from cur.cpp:16:0:
-antonov/Matrix.cpp:87:10: note: Matrix& Matrix::operator=(Matrix&)
-  Matrix& operator = (Matrix& A)
-          ^
-antonov/Matrix.cpp:87:10: note:   no known conversion for argument 1 from 'Matrix' to 'Matrix&'
-./check.sh: line 24: ./a.out: No such file or directory
+[==========] Running 7 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 7 tests from MatrixTest
+[ RUN      ] MatrixTest.GetNM
+cur.cpp:23: Failure
+Value of: m->getM()
+  Actual: 4
+Expected: 3
+cur.cpp:24: Failure
+Value of: m->getN()
+  Actual: 3
+Expected: 4
+[  FAILED  ] MatrixTest.GetNM
+[ RUN      ] MatrixTest.Reverse
+cur.cpp:38: Failure
+Value of: (int)(c.get(i,j)+0.5)
+  Actual: 1
+Expected: (int)(i == j)
+Which is: 0
+1	0	0	0	
+2	1	0	0	
+3	2	1	0	
+4	3	2	1	
+1	-2	3	-4	
+-0	1	-2	3	
+0	-0	1	-2	
+-0	0	-0	1	
+index: 0
+index: 1
+index: 2
+index: 3
+cur.cpp:55: Failure
+Value of: round(c.get(i+1,i))
+  Actual: -0
+Expected: -2
+cur.cpp:55: Failure
+Value of: round(c.get(i+1,i))
+  Actual: -0
+Expected: -2
+cur.cpp:55: Failure
+Value of: round(c.get(i+1,i))
+  Actual: -0
+Expected: -2
+cur.cpp:57: Failure
+Value of: round(c.get(i+2,i))
+  Actual: 0
+Expected: 1
+cur.cpp:57: Failure
+Value of: round(c.get(i+2,i))
+  Actual: 0
+Expected: 1
+[  FAILED  ] MatrixTest.Reverse
+[ RUN      ] MatrixTest.Transpose
+cur.cpp:78: Failure
+Value of: (int)(c.get(i,j)+0.5)
+  Actual: 1
+Expected: (int)(cc++)
+Which is: 6
+cur.cpp:78: Failure
+Value of: (int)(c.get(i,j)+0.5)
+  Actual: 2
+Expected: (int)(cc++)
+Which is: 7
+cur.cpp:78: Failure
+Value of: (int)(c.get(i,j)+0.5)
+  Actual: -2147483648
+Expected: (int)(cc++)
+Which is: 8
+cur.cpp:78: Failure
+Value of: (int)(c.get(i,j)+0.5)
+  Actual: 1
+Expected: (int)(cc++)
+Which is: 9
+cur.cpp:78: Failure
+Value of: (int)(c.get(i,j)+0.5)
+  Actual: 2
+Expected: (int)(cc++)
+Which is: 10
+cur.cpp:78: Failure
+Value of: (int)(c.get(i,j)+0.5)
+  Actual: 0
+Expected: (int)(cc++)
+Which is: 11
+[  FAILED  ] MatrixTest.Transpose
+[ RUN      ] MatrixTest.SetGet
+cur.cpp:92: Failure
+Value of: (int)(m->get(j,i)+0.5)
+  Actual: 9
+Expected: (int)(c++)
+Which is: 6
+cur.cpp:92: Failure
+Value of: (int)(m->get(j,i)+0.5)
+  Actual: 10
+Expected: (int)(c++)
+Which is: 7
+cur.cpp:92: Failure
+Value of: (int)(m->get(j,i)+0.5)
+  Actual: 11
+Expected: (int)(c++)
+Which is: 8
+cur.cpp:92: Failure
+Value of: (int)(m->get(j,i)+0.5)
+  Actual: 0
+Expected: (int)(c++)
+Which is: 9
+cur.cpp:92: Failure
+Value of: (int)(m->get(j,i)+0.5)
+  Actual: -2147483648
+Expected: (int)(c++)
+Which is: 10
+cur.cpp:92: Failure
+Value of: (int)(m->get(j,i)+0.5)
+  Actual: -2147483648
+Expected: (int)(c++)
+Which is: 11
+[  FAILED  ] MatrixTest.SetGet
+[ RUN      ] MatrixTest.FailedM
+[       OK ] MatrixTest.FailedM
+[ RUN      ] MatrixTest.Read
