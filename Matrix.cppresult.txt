@@ -1,94 +1,29 @@
 In file included from cur.cpp:16:0:
-antonov/Matrix.cpp:207:27: error: macro "minor" passed 2 arguments, but takes just 1
-  Matrix minor(int i, int j)
-                           ^
-antonov/Matrix.cpp:259:60: error: macro "minor" passed 2 arguments, but takes just 1
-       result = result + this->get(i, j) * (this->minor(i, j)).determinant();
-                                                            ^
-antonov/Matrix.cpp:263:60: error: macro "minor" passed 2 arguments, but takes just 1
-       result = result - this->get(i, j) * (this->minor(i, j)).determinant();
-                                                            ^
-antonov/Matrix.cpp:292:40: error: macro "minor" passed 2 arguments, but takes just 1
-       result.set(i, j, this->minor(i, j).determinant());
-                                        ^
-antonov/Matrix.cpp:296:48: error: macro "minor" passed 2 arguments, but takes just 1
-       result.set(i, j, (-1) * (this->minor(i, j).determinant()));
-                                                ^
-antonov/Matrix.cpp:242:2: error: field 'minor' has incomplete type
-  }
-  ^
-antonov/Matrix.cpp:242:2: error: expected ';' at end of member declaration
-antonov/Matrix.cpp: In member function 'double Matrix::determinant()':
-antonov/Matrix.cpp:259:50: error: 'class Matrix' has no member named 'minor'
-       result = result + this->get(i, j) * (this->minor(i, j)).determinant();
-                                                  ^
-antonov/Matrix.cpp:263:50: error: 'class Matrix' has no member named 'minor'
-       result = result - this->get(i, j) * (this->minor(i, j)).determinant();
-                                                  ^
 antonov/Matrix.cpp: In member function 'Matrix Matrix::reverse()':
-antonov/Matrix.cpp:292:30: error: 'class Matrix' has no member named 'minor'
-       result.set(i, j, this->minor(i, j).determinant());
-                              ^
-antonov/Matrix.cpp:296:38: error: 'class Matrix' has no member named 'minor'
-       result.set(i, j, (-1) * (this->minor(i, j).determinant()));
-                                      ^
-antonov/Matrix.cpp:300:11: error: no match for 'operator=' (operand types are 'Matrix' and 'Matrix')
+antonov/Matrix.cpp:308:11: error: no match for 'operator=' (operand types are 'Matrix' and 'Matrix')
     result = result.transpose();
            ^
-antonov/Matrix.cpp:300:11: note: candidate is:
-antonov/Matrix.cpp:79:9: note: Matrix Matrix::operator=(Matrix&)
-  Matrix operator = (Matrix& A)
-         ^
-antonov/Matrix.cpp:79:9: note:   no known conversion for argument 1 from 'Matrix' to 'Matrix&'
-antonov/Matrix.cpp:301:11: error: no match for 'operator=' (operand types are 'Matrix' and 'Matrix')
+antonov/Matrix.cpp:308:11: note: candidate is:
+antonov/Matrix.cpp:87:10: note: Matrix& Matrix::operator=(Matrix&)
+  Matrix& operator = (Matrix& A)
+          ^
+antonov/Matrix.cpp:87:10: note:   no known conversion for argument 1 from 'Matrix' to 'Matrix&'
+antonov/Matrix.cpp:309:11: error: no match for 'operator=' (operand types are 'Matrix' and 'Matrix')
     result = result * det;
            ^
-antonov/Matrix.cpp:301:11: note: candidate is:
-antonov/Matrix.cpp:79:9: note: Matrix Matrix::operator=(Matrix&)
-  Matrix operator = (Matrix& A)
-         ^
-antonov/Matrix.cpp:79:9: note:   no known conversion for argument 1 from 'Matrix' to 'Matrix&'
-In file included from /usr/pkg/include/gtest/gtest.h:1798:0,
-                 from cur.cpp:14:
-cur.cpp: In member function 'virtual void MatrixTest_GetNM_Test::TestBody()':
-cur.cpp:23:21: error: 'class Matrix' has no member named 'getM'
-     EXPECT_EQ(3, m->getM());
-                     ^
-/usr/pkg/include/gtest/gtest_pred_impl.h:77:52: note: in definition of macro 'GTEST_ASSERT_'
-   if (const ::testing::AssertionResult gtest_ar = (expression)) \
-                                                    ^
-/usr/pkg/include/gtest/gtest_pred_impl.h:162:3: note: in expansion of macro 'GTEST_PRED_FORMAT2_'
-   GTEST_PRED_FORMAT2_(pred_format, v1, v2, GTEST_NONFATAL_FAILURE_)
-   ^
-/usr/pkg/include/gtest/gtest.h:1847:3: note: in expansion of macro 'EXPECT_PRED_FORMAT2'
-   EXPECT_PRED_FORMAT2(::testing::internal:: \
-   ^
-cur.cpp:23:5: note: in expansion of macro 'EXPECT_EQ'
-     EXPECT_EQ(3, m->getM());
-     ^
-cur.cpp:24:21: error: 'class Matrix' has no member named 'getN'
-     EXPECT_EQ(4, m->getN());
-                     ^
-/usr/pkg/include/gtest/gtest_pred_impl.h:77:52: note: in definition of macro 'GTEST_ASSERT_'
-   if (const ::testing::AssertionResult gtest_ar = (expression)) \
-                                                    ^
-/usr/pkg/include/gtest/gtest_pred_impl.h:162:3: note: in expansion of macro 'GTEST_PRED_FORMAT2_'
-   GTEST_PRED_FORMAT2_(pred_format, v1, v2, GTEST_NONFATAL_FAILURE_)
-   ^
-/usr/pkg/include/gtest/gtest.h:1847:3: note: in expansion of macro 'EXPECT_PRED_FORMAT2'
-   EXPECT_PRED_FORMAT2(::testing::internal:: \
-   ^
-cur.cpp:24:5: note: in expansion of macro 'EXPECT_EQ'
-     EXPECT_EQ(4, m->getN());
-     ^
+antonov/Matrix.cpp:309:11: note: candidate is:
+antonov/Matrix.cpp:87:10: note: Matrix& Matrix::operator=(Matrix&)
+  Matrix& operator = (Matrix& A)
+          ^
+antonov/Matrix.cpp:87:10: note:   no known conversion for argument 1 from 'Matrix' to 'Matrix&'
 cur.cpp: In member function 'virtual void MatrixTest_Reverse_Test::TestBody()':
 cur.cpp:47:7: error: no match for 'operator=' (operand types are 'Matrix' and 'Matrix')
      c = m->reverse();
        ^
 cur.cpp:47:7: note: candidate is:
 In file included from cur.cpp:16:0:
-antonov/Matrix.cpp:79:9: note: Matrix Matrix::operator=(Matrix&)
-  Matrix operator = (Matrix& A)
-         ^
-antonov/Matrix.cpp:79:9: note:   no known conversion for argument 1 from 'Matrix' to 'Matrix&'
+antonov/Matrix.cpp:87:10: note: Matrix& Matrix::operator=(Matrix&)
+  Matrix& operator = (Matrix& A)
+          ^
+antonov/Matrix.cpp:87:10: note:   no known conversion for argument 1 from 'Matrix' to 'Matrix&'
 ./check.sh: line 24: ./a.out: No such file or directory
