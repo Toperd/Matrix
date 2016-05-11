@@ -328,8 +328,8 @@ public:
 	{
 		int k, p;
 		double tmp;
-		in >> k;
 		in >> p;
+		in >> k;
 		Matrix result;
 		result.n = k;
 		result.m = p;
@@ -339,9 +339,10 @@ public:
 			for(int j = 0; j < result.m; j++)
 			{
 				in >> tmp;
-				result.set(i, j, tmp);
+				result.set(j, i, tmp);
 			}
 		}
+		return in;
 	}
 };
 
