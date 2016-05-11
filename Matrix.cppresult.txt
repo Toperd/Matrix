@@ -1,30 +1,3 @@
-In file included from cur.cpp:16:0:
-antonov/Matrix.cpp: In member function 'Matrix Matrix::reverse()':
-antonov/Matrix.cpp:300:11: error: no match for 'operator=' (operand types are 'Matrix' and 'Matrix')
-    result = result.transpose();
-           ^
-antonov/Matrix.cpp:300:11: note: candidate is:
-antonov/Matrix.cpp:79:10: note: Matrix& Matrix::operator=(Matrix&)
-  Matrix& operator = (Matrix& A)
-          ^
-antonov/Matrix.cpp:79:10: note:   no known conversion for argument 1 from 'Matrix' to 'Matrix&'
-antonov/Matrix.cpp:301:11: error: no match for 'operator=' (operand types are 'Matrix' and 'Matrix')
-    result = result * det;
-           ^
-antonov/Matrix.cpp:301:11: note: candidate is:
-antonov/Matrix.cpp:79:10: note: Matrix& Matrix::operator=(Matrix&)
-  Matrix& operator = (Matrix& A)
-          ^
-antonov/Matrix.cpp:79:10: note:   no known conversion for argument 1 from 'Matrix' to 'Matrix&'
-antonov/Matrix.cpp: In function 'int main()':
-antonov/Matrix.cpp:375:8: error: no match for 'operator=' (operand types are 'Matrix' and 'Matrix')
-  test2 = test->transpose();
-        ^
-antonov/Matrix.cpp:375:8: note: candidate is:
-antonov/Matrix.cpp:79:10: note: Matrix& Matrix::operator=(Matrix&)
-  Matrix& operator = (Matrix& A)
-          ^
-antonov/Matrix.cpp:79:10: note:   no known conversion for argument 1 from 'Matrix' to 'Matrix&'
 In file included from /usr/pkg/include/gtest/gtest.h:1798:0,
                  from cur.cpp:14:
 cur.cpp: In member function 'virtual void MatrixTest_GetNM_Test::TestBody()':
@@ -57,23 +30,5 @@ cur.cpp:24:21: error: 'class Matrix' has no member named 'getN'
    ^
 cur.cpp:24:5: note: in expansion of macro 'EXPECT_EQ'
      EXPECT_EQ(4, m->getN());
-     ^
-cur.cpp: In member function 'virtual void MatrixTest_Reverse_Test::TestBody()':
-cur.cpp:47:7: error: no match for 'operator=' (operand types are 'Matrix' and 'Matrix')
-     c = m->reverse();
-       ^
-cur.cpp:47:7: note: candidate is:
-In file included from cur.cpp:16:0:
-antonov/Matrix.cpp:79:10: note: Matrix& Matrix::operator=(Matrix&)
-  Matrix& operator = (Matrix& A)
-          ^
-antonov/Matrix.cpp:79:10: note:   no known conversion for argument 1 from 'Matrix' to 'Matrix&'
-cur.cpp: In function 'int main(int, char**)':
-cur.cpp:207:31: error: declaration of C function 'int main(int, char**)' conflicts with
- int main(int argc, char **argv) {
-                               ^
-In file included from cur.cpp:16:0:
-antonov/Matrix.cpp:350:5: error: previous declaration 'int main()' here
- int main()
      ^
 ./check.sh: line 24: ./a.out: No such file or directory
