@@ -8,8 +8,8 @@ using namespace std;
 class Matrix
 {
 protected:
-	int n; // строки
-	int m; // столбцы
+	int n; // Г±ГІГ°Г®ГЄГЁ
+	int m; // Г±ГІГ®Г«ГЎГ¶Г»
 	double* data;
 public:
 	Matrix()
@@ -51,6 +51,14 @@ public:
 	double get(int j, int i)const
 	{
 		return this->data[i * this->m + j];
+	}
+	int getM()
+	{
+		return this->m;
+	}
+	int getN()
+	{
+		return this->n;
 	}
 	Matrix(const Matrix& A)
 	{
@@ -337,7 +345,7 @@ public:
 	}
 };
 
-Matrix* get_init(int m, int n) // возвращает указатель на матрицу m на n с нулевым заполнением
+Matrix* get_init(int m, int n) // ГўГ®Г§ГўГ°Г Г№Г ГҐГІ ГіГЄГ Г§Г ГІГҐГ«Гј Г­Г  Г¬Г ГІГ°ГЁГ¶Гі m Г­Г  n Г± Г­ГіГ«ГҐГўГ»Г¬ Г§Г ГЇГ®Г«Г­ГҐГ­ГЁГҐГ¬
 {
 	double* mass = new double[n * m];
 	for(int i = 0; i < n * m; i++)
