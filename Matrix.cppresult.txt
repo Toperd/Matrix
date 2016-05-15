@@ -24,3 +24,9 @@ index: 3
 [ RUN      ] MatrixTest.FailedM
 [       OK ] MatrixTest.FailedM
 [ RUN      ] MatrixTest.Read
+[       OK ] MatrixTest.Read
+[ RUN      ] MatrixTest.Determinant
+[       OK ] MatrixTest.Determinant
+[----------] Global test environment tear-down
+[==========] 7 tests from 1 test case ran.
+[  PASSED  ] 7 tests.
