@@ -326,20 +326,16 @@ public:
 
 	istream& read(istream& in)
 	{
-		int k, p;
 		double tmp;
-		in >> p;
-		in >> k;
-		Matrix result;
-		result.n = k;
-		result.m = p;
-		result.data = new double[k * p];
-		for(int i = 0; i < result.n; i++)
+		in >> this->m;
+		in >> this->n;
+		this->data = new double[this->m * this->n];
+		for(int i = 0; i < this->n; i++)
 		{
-			for(int j = 0; j < result.m; j++)
+			for(int j = 0; j < this->m; j++)
 			{
 				in >> tmp;
-				result.set(j, i, tmp);
+				this->set(j, i, tmp);
 			}
 		}
 		return in;
